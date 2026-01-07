@@ -86,9 +86,24 @@ void keyEnter(){
             }catch(BadLocationException ex) {
                     ex.printStackTrace();
                 };
+            }
+
+             if (e.getKeyChar() == '"'){
+                    e.consume();
+                try{
+                    JTextPane tp2 = main2.textPane;
+                    StyledDocument sd = tp2.getStyledDocument();
+                    int pos2 = tp2.getCaretPosition();
+                    sd.insertString(pos2,"\"\"",null);
+                    tp2.setCaretPosition(pos2 + 1);
+
+                }catch(BadLocationException ex) {
+                        ex.printStackTrace();
+                    };
+                }
 
 
-        }
+        
     }
         
     });
@@ -107,4 +122,5 @@ void keyEnter(){
 
 
 }
+
 
